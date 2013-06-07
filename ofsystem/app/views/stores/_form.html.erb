@@ -1,0 +1,44 @@
+<%= form_for @store, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :fancy_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :fancy_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :corporate_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :corporate_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cnpj, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :cnpj, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :state_registration, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :state_registration, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :site, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :site, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                stores_path, :class => 'btn' %>
+  </div>
+<% end %>

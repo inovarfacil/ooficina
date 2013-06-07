@@ -1,14 +1,87 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Ofsystem</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Ofsystem" %></title>
+    <%= csrf_meta_tags %>
+
+    <!-- Javascripts
+    ================================================== -->
+    <%= javascript_include_tag "application" %>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <!-- Stylesheets
+    ================================================== -->
+    <%= stylesheet_link_tag "application", :media => "all" %>
+  </head>
+
+
+  <div class="navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+
+        <div class="btn-group pull-right">
+          <a href="#" style="color: white;cursor: default;margin: 4px;padding: 9px 10px 11px; text-decoration: none;" > Olá, <b>nome</b>)</a>          
+          <a class="btn dropdown-toggle icon-user" href="#" data-toggle="dropdown">
+            Área do usuário
+            <span class="caret"></span>
+          </a>
+              <ul class="dropdown-menu">                         
+                <%# if user_signed_in? %>
+                  Bem-vindo <strong>Nome</strong>.
+                  <li><%= link_to 'Editar perfil' %></li>
+                  <li><%= link_to "Voltar ao site" %></li>
+                  <li><%= link_to "Sair do sistema", :method => :delete %></li>
+                <%# else %>
+                  <li><%= link_to "Criar conta"  %></li>
+                  <li><%= link_to "Acessar"  %></li>
+                <%# end %>                 
+              </ul>
+        </div> 
+
+        <div class="container-fluid nav-collapse">
+          <ul class="nav nav-pills">
+            <!-- Menu home -->
+            <li><%= link_to "Home" %></li>
+            <li><%= link_to "Loja" %></li>
+            <li><%= link_to "Clientes" %></li>            
+            <li><%= link_to "Contatos" %></li>
+            <li><%= link_to "Imagens" %></li>
+            <li class="dropdown" style="visibility: visible;">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produtos | Serviços<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Cadastar Serviços" %></li>
+                <li><%= link_to "Tipos de Serviços" %></li>
+              </ul>
+            </li>
+            <li><%= link_to "Usuários" %></li>
+            <li><%= link_to "Permissões" %></li>            
+            <li><%= link_to "Configurações" %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 <body>
 
-<%= yield %>
+<div class="container-fluid">
+	<div class="row-fluid">
+	  <div class="span12"><%= yield %></div>
+	</div>
+</div>
 
 </body>
 </html>

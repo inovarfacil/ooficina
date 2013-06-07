@@ -1,0 +1,43 @@
+<%- model_class = Store -%>
+<div class="page-header">
+  <h1>Lojas</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:fancy_name) %></th>
+      <th><%= model_class.human_attribute_name(:corporate_name) %></th>
+      <th><%= model_class.human_attribute_name(:cnpj) %></th>
+      <th><%= model_class.human_attribute_name(:state_registration) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:site) %></th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stores.each do |store| %>
+      <tr>
+        <td><%= store.fancy_name %></td>
+        <td><%= store.corporate_name %></td>
+        <td><%= store.cnpj %></td>
+        <td><%= store.state_registration %></td>
+        <td><%= store.email %></td>
+        <td><%= store.site %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_store_path(store), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      store_path(store),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_store_path,
+            :class => 'btn btn-primary' %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fancy_name: MyString
+  corporate_name: MyString
+  cnpj: 1
+  state_registration: 1
+  email: MyString
+  site: MyString
+
+two:
+  fancy_name: MyString
+  corporate_name: MyString
+  cnpj: 1
+  state_registration: 1
+  email: MyString
+  site: MyString

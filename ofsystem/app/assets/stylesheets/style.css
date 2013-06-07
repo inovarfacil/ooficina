@@ -28,6 +28,7 @@
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 }
+
 .icon-clock:before {
 	content: "\e023";
 }

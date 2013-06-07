@@ -1,4 +1,7 @@
 Ofsystem::Application.routes.draw do
+  resources :stores
+
+
   root :to => 'site#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
